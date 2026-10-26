@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile · Memory Galaxy</title>
+  <link rel="icon" href="assets/icons/star.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/galaxy.css" />
+</head>
+<body class="page-body">
+  <header class="hud static">
+    <a class="brand" href="galaxy.html"><i class="fa-solid fa-star"></i> MEMORY GALAXY</a>
+    <nav class="hud-actions">
+      <a class="hud-btn" href="galaxy.html">Galaxy</a>
+      <button id="logout-btn" class="hud-btn" type="button">Logout</button>
+    </nav>
+  </header>
+
+  <main class="profile-page">
+    <section class="glass-card profile-hero">
+      <label class="avatar-wrap">
+        <img id="avatar" alt="Profile picture" src="assets/icons/star.svg" />
+        <input id="avatar-input" type="file" accept="image/*" hidden />
+        <span>Change photo</span>
+      </label>
+      <div>
+        <h1 id="profile-name">Explorer</h1>
+        <p id="profile-email"></p>
+        <p id="profile-phone"></p>
+        <p id="profile-created"></p>
+      </div>
+    </section>
+
+    <section id="profile-stats" class="stats big"></section>
+
+    <section class="glass-card">
+      <h2>Update profile</h2>
+      <form id="profile-form">
+        <label>Name <input id="name" required /></label>
+        <label>Phone <input id="phone" /></label>
+        <p id="profile-error" class="form-error" hidden></p>
+        <button class="btn btn-primary" type="submit">Save</button>
+      </form>
+    </section>
+
+    <section class="glass-card">
+      <h2>Change Password</h2>
+      <form id="password-form">
+        <label>Current password <input id="currentPassword" type="password" required /></label>
+        <label>New password <input id="password" type="password" minlength="8" required /></label>
+        <label>Confirm password <input id="confirmPassword" type="password" minlength="8" required /></label>
+        <p id="password-error" class="form-error" hidden></p>
+        <button class="btn btn-primary" type="submit">Update password</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

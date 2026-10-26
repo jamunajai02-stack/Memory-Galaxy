@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory · Memory Galaxy</title>
+  <link rel="icon" href="assets/icons/star.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/galaxy.css" />
+  <link rel="stylesheet" href="css/editor.css" />
+</head>
+<body class="page-body">
+  <header class="hud static">
+    <a class="brand" href="galaxy.html"><i class="fa-solid fa-star"></i> MEMORY GALAXY</a>
+    <nav class="hud-actions">
+      <a class="hud-btn" href="galaxy.html">Back to Galaxy</a>
+      <a class="hud-btn" href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="editor-page">
+    <h1 id="page-title">Create Memory</h1>
+    <form id="memory-form">
+      <div class="form-grid">
+        <label>Star Name <input id="starName" maxlength="80" required /></label>
+        <label>Memory Title <input id="title" maxlength="140" required /></label>
+        <label>Date <input id="date" type="date" /></label>
+        <label>Location <input id="location" maxlength="120" /></label>
+        <label>Category
+          <select id="category"></select>
+        </label>
+        <label>Emotion
+          <select id="emotion"></select>
+        </label>
+      </div>
+
+      <p class="label">Memory</p>
+      <div class="editor-shell">
+        <div id="editor-toolbar" class="editor-toolbar"></div>
+        <div id="editor" class="editor-canvas" contenteditable="true" data-placeholder="Today was one of the happiest days of my life..."></div>
+      </div>
+
+      <div class="photo-section">
+        <div class="photo-head">
+          <h2>Photos</h2>
+          <label class="btn btn-ghost">
+            Attach photos
+            <input id="photos" type="file" accept="image/*" multiple hidden />
+          </label>
+        </div>
+        <div id="photo-preview" class="photo-grid"></div>
+      </div>
+
+      <p id="form-error" class="form-error" hidden></p>
+      <button class="btn btn-primary" type="submit">Save Star</button>
+    </form>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/memory.js"></script>
+</body>
+</html>
