@@ -1,0 +1,91 @@
+.auth-body {
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 88px 16px 56px;
+  overflow: visible;
+}
+
+.auth-brand {
+  position: fixed;
+  top: 20px;
+  left: 6vw;
+  z-index: 8;
+}
+
+.auth-card {
+  position: relative;
+  z-index: 4;
+  width: min(440px, 100%);
+  margin: 0 auto 24px;
+  padding: 24px 24px 28px;
+  border-radius: 24px;
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+}
+.auth-card.wide { width: min(640px, 100%); }
+.auth-card.wide form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 14px;
+}
+.auth-card.wide form label:nth-of-type(n+6),
+.auth-card.wide form .form-error,
+.auth-card.wide form .btn {
+  grid-column: 1 / -1;
+}
+.auth-card h1 { margin: 0 0 8px; font-family: var(--display); font-size: 1.8rem; }
+.lede { color: var(--muted); margin-top: 0; }
+.auth-links { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px; color: var(--cyan); font-size: 0.9rem; }
+
+.tabs { display: flex; gap: 8px; margin: 8px 0 16px; }
+.tab {
+  border: 1px solid var(--stroke);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.tab.active { background: rgba(139, 92, 246, 0.35); }
+.question-text { font-size: 1.1rem; color: #efe7ff; }
+
+.alien {
+  position: absolute; z-index: 3; width: 170px; pointer-events: none;
+  animation: floaty 4.8s ease-in-out infinite;
+}
+.alien-luna { left: max(20px, 8vw); top: 22%; color: #f9a8d4; }
+.alien-nix { right: max(20px, 8vw); top: 42%; color: #67e8f9; animation-delay: -1.6s; }
+.alien svg { width: 100%; overflow: visible; }
+.alien .head, .alien .body, .alien .foot, .alien .tip { fill: currentColor; }
+.alien-luna .cheek { fill: #fb7185; }
+.alien-nix .spot { fill: #22d3ee; }
+.alien .eye { fill: #0f172a; }
+.alien .pupil { fill: #ecfeff; }
+.alien .shine { fill: #fff; }
+.alien .smile { fill: none; stroke: #334155; stroke-width: 3; stroke-linecap: round; }
+.alien .antenna { fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; }
+.alien .arm { fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; }
+.alien .glow { fill: currentColor; opacity: .22; filter: blur(4px); }
+.alien-luna .right { animation: wave 2.5s ease-in-out infinite; transform-origin: 118px 112px; }
+.blink { animation: blink 5s ease-in-out infinite; }
+
+@keyframes floaty {
+  0%, 100% { transform: translate3d(0,0,0) rotate(-4deg); }
+  50% { transform: translate3d(12px,-18px,0) rotate(3deg); }
+}
+@keyframes wave { 50% { transform: rotate(-22deg); } }
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+
+@media (max-width: 800px) {
+  .alien { width: 84px; top: 64px; opacity: 0.85; }
+  .alien-luna { left: 8px; }
+  .alien-nix { right: 8px; }
+  .auth-body { padding: 76px 12px 48px; }
+  .auth-card.wide form { grid-template-columns: 1fr; }
+}
